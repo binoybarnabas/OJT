@@ -1,7 +1,7 @@
 'use client'
 import SignupForm from "@/components/Form";
-
 import { Container, Typography } from "@mui/material";
+import isAuth from "@/components/Auth";
 
 const PersonalDetails = () => {
   return (
@@ -14,4 +14,4 @@ const PersonalDetails = () => {
   );
 };
 
-export default PersonalDetails;
+export default isAuth(PersonalDetails);

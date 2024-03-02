@@ -3,6 +3,8 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { FormProvider } from "@/contexts/FormContext";
 import { CounterProvider } from "@/contexts/CounterContext";
+import { AuthProvider } from "@/contexts/AuthContext";
+
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,12 +18,15 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
   return (
     <html lang="en">
       <body className={inter.className}>
-        <FormProvider>
-          <CounterProvider>{children}</CounterProvider>
-        </FormProvider>
+        <AuthProvider>
+          <FormProvider>
+            <CounterProvider>{children}</CounterProvider>
+          </FormProvider>
+        </AuthProvider>
       </body>
     </html>
   );

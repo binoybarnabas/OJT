@@ -1,11 +1,11 @@
 import UserCard from "@/components/UserCard";
-import axios from "axios";
 import { getData } from "../utils";
 import { CircularProgress } from "@mui/material";
 
-
 const ServerSideRender = async () => {
+  
     const userData = await getData();
+
     return ( 
         <>
         {userData.length === 0 ? (

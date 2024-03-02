@@ -4,6 +4,8 @@ import GameCard from "@/components/GameCard";
 import { useFetchData } from "@/hooks/UseFetchHook";
 import { Typography, Container, Box, CircularProgress } from "@mui/material";
 import Link from "next/link";
+import isAuth from "@/components/Auth";
+
 
 const options = {
   method: 'GET',
@@ -63,4 +65,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default isAuth(Home);

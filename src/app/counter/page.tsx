@@ -2,6 +2,7 @@
 import React, { useContext } from "react";
 import { Button,  Grid, Typography } from "@mui/material";
 import { CounterContext, CounterProvider } from "@/contexts/CounterContext";
+import isAuth from "@/components/Auth";
 
 const useStyles = {
   root: {
@@ -64,4 +65,4 @@ const Counter = () => {
   );
 };
 
-export default Counter;
+export default isAuth(Counter);

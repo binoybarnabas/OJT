@@ -3,6 +3,7 @@
 import { Game } from "@/Models";
 import GameCard from "@/components/GameCard";
 import { useFetchData } from "@/hooks/UseFetchHook";
+import isAuth from "@/components/Auth";
 
 const GameDetail = ({ params }: { params: { id: number } }) => {
   
@@ -29,4 +30,4 @@ const GameDetail = ({ params }: { params: { id: number } }) => {
   );
 };
 
-export default GameDetail;
+export default isAuth(GameDetail);

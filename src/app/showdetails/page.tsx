@@ -3,6 +3,8 @@ import UserInfoCard from "@/components/UserInfoCard";
 import { FormProviderContext } from "@/contexts/FormContext";
 import { Container, Typography } from "@mui/material";
 import { useContext } from "react";
+import isAuth from "@/components/Auth";
+
 
 const ShowDetails = () => {
   const {userData} = useContext(FormProviderContext);
@@ -21,4 +23,4 @@ const ShowDetails = () => {
   );
 };
 
-export default ShowDetails;
+export default isAuth(ShowDetails);
