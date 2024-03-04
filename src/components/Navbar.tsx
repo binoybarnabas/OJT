@@ -5,6 +5,7 @@ import { AppBar,  Toolbar, Typography, Button } from '@mui/material';
 import { useRouter } from 'next/navigation'
 import { AuthContext } from '@/contexts/AuthContext';
 import isAuth from './Auth';
+
 const useStyles ={
   title: {
     flexGrow: 1,

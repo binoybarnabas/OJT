@@ -1,20 +1,21 @@
 'use client'
 import { Game } from "@/Models";
-import axios from "axios";
+import { useAxios } from "./axios";
 import { useEffect, useState } from "react";
-
+import axios from "axios";
 
 export const useFetchData = (options:any) => {
+    const {get} = useAxios();
     const [data,setData] = useState([]);
     useEffect(
         ()=>{
             const fetchData = async ()=>{
                 try{    
-                    const response = await axios.request(options);
-                    const data = await response.data;
-                    console.log("here")
-                    console.log(data);
-                    setData(response.data);
+                    // const response = await axios.request(options);
+                    // const data = await response.data;
+                    const data = await get(options.url,options)
+                    setData(data)
+                
                 }
                catch(error){    
                     console.log(error);

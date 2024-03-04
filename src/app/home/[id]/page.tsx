@@ -7,15 +7,15 @@ import isAuth from "@/components/Auth";
 
 const GameDetail = ({ params }: { params: { id: number } }) => {
   
-  const options = {
-    method: "GET",
-    url: "https://free-to-play-games-database.p.rapidapi.com/api/game",
-    params: { id: params.id },
-    headers: {
-      "X-RapidAPI-Key": "43040e7cd6msh057a757c8f68c72p149273jsn53c83eada13f",
-      "X-RapidAPI-Host": "free-to-play-games-database.p.rapidapi.com",
-    },
-  };
+    const options = {
+      method: "GET",
+      url: "https://free-to-play-games-database.p.rapidapi.com/api/game",
+      params: { id: params.id },
+      headers: {
+        "X-RapidAPI-Key": "43040e7cd6msh057a757c8f68c72p149273jsn53c83eada13f",
+        "X-RapidAPI-Host": "free-to-play-games-database.p.rapidapi.com",
+      },
+    };
 
   const data = JSON.stringify(useFetchData(options));
   const gameData : Game = JSON.parse(data)
