@@ -8,12 +8,12 @@ const getToken = ()=> 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3
 const getApiConfig = useCallback(
     (axiosConfig?: AxiosRequestConfig): AxiosRequestConfig => {
       const token = getToken();
-
+        // console.log(token)
       const config = {
         //baseURL: process.env.NEXT_PUBLIC_BASE_URL,
         headers: {
           'Content-Type': 'application/json',
-          Authorization: token ? `Bearer ${token}` : '',
+          'Authorization': token ? `Bearer ${token}` : '',
         },
       };
       return axiosConfig ? { ...config, ...axiosConfig } : config;
@@ -36,7 +36,7 @@ const getApiConfig = useCallback(
             return response.data;
         }
         catch(error:any){
-            console.log(error);
+            throw error;
         }
         finally{
             console.log("done")

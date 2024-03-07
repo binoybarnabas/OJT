@@ -5,6 +5,7 @@ import { useFetchData } from "@/hooks/UseFetchHook";
 import { Typography, Container, Box, CircularProgress } from "@mui/material";
 import Link from "next/link";
 import isAuth from "@/components/Auth";
+import { useEffect, useState } from "react";
 
 
 const options = {
@@ -17,7 +18,12 @@ const options = {
 };
 
 const Home = () => {
+ 
   const gameData = useFetchData(options);
+  console.log("inside page" + gameData)
+  // if(gameData.length === 0){
+  //   throw new Error("No fetched data to show")
+  // }
 
   const gameCardContainerStyle = {
     display: "flex",
@@ -44,11 +50,6 @@ const Home = () => {
         You can get all the inforamtion about gaming from here..
       </Typography>
       <Container sx={gameCardContainerStyle}>
-      {gameData.length === 0 ? (
-        <Box display="flex" justifyContent="center" alignItems="center" height="50vh">
-          <CircularProgress />
-        </Box>
-      ) : (
         <Container sx={gameCardContainerStyle}>
           {gameData &&
             gameData.map((data: Game) => (
@@ -59,10 +60,27 @@ const Home = () => {
               </Container>
             ))}
         </Container>
-      )}
       </Container>
     </Container>
   );
 };
 
 export default isAuth(Home);
+
+
+// {gameData.length === 0 ? (
+//   <Box display="flex" justifyContent="center" alignItems="center" height="50vh">
+//     <CircularProgress />
+//   </Box>
+// ) : (
+//   <Container sx={gameCardContainerStyle}>
+//     {gameData &&
+//       gameData.map((data: Game) => (
+//         <Container sx={gameCardStyle} key={data.id}>
+//           <Link href={`/home/${data.id}`}>
+//             <GameCard game={data}   />
+//           </Link>
+//         </Container>
+//       ))}
+//   </Container>
+// )}

@@ -18,6 +18,7 @@ export const useFetchData = (options:any) => {
                 
                 }
                catch(error){    
+                    throw new Error("Data cannot be fetched properly :(")
                     console.log(error);
                }
             }
